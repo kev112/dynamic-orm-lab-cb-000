@@ -42,8 +42,10 @@ class InteractiveRecord
   end
 
   def find_by(attribute_hash)
-    sql = "SELECT * FROM WHERE  = #{attribute_hash.keys.first} "
-    
+    value = attribute_hash.values[0]
+    formatted_value = (value.is_a? Integer) ? value : "#{value}"
+    sql = "SELECT * FROM WHERE  #{attribute_hash.keys.first} = #{formatted_value} "
+
   end
 
 end
