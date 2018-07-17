@@ -62,7 +62,7 @@ def self.find_by_name(name)
   DB[:conn].execute(sql)
 end
 
-  def find_by(attribute_hash)
+  def self.find_by(attribute_hash)
     value = attribute_hash.values[0]
     formatted_value = (value.is_a? Integer) ? value : "'#{value}'"
     sql = "SELECT * FROM #{self.table_name} WHERE  #{attribute_hash.keys.first} = #{formatted_value} "
