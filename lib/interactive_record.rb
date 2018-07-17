@@ -66,7 +66,7 @@ end
     value = attribute_hash.values[0]
     formatted_value = (value.is_a? Integer) ? value : "'#{value}'"
     sql = "SELECT * FROM #{self.table_name} WHERE  #{attribute_hash.keys.first} = #{formatted_value} "
-
+    DB[:conn].execute(sql)
   end
 
 end
